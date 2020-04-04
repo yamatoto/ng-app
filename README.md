@@ -6,16 +6,20 @@ npm start
 バックエンド
 npm run server
 
+## NgRX
+
+NgRXで開発を行う為、Chrome拡張機能「Redux DevTools」をインストールしてください
+
 ## templateブランチ
 
 下記骨組み作成済  
-・eslint設定済  
-・pathsの設定済  
+・eslint 
+・paths
 ・proxy.json  
 ・共通SCSS  
 ・i18nベース  
 ・フォルダ構成  
 ・REST APIサーバー  
 ・推奨拡張機能  
-・setting.json追加済  
+・setting.json  
 ・package.json  
