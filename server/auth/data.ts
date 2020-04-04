@@ -9,21 +9,21 @@ interface User {
 export const USERS: User[] = [
   {
     id: 1,
-    email: 'test1@',
+    email: 'admin@example.com',
+    password: 'test',
+    auth: 0,
+  },
+  {
+    id: 2,
+    email: 'normal@example.com',
     password: 'test',
     auth: 1,
   },
   {
-    id: 2,
-    email: 'test2@',
+    id: 3,
+    email: 'test3@example.com',
     password: 'test',
     auth: 2,
-  },
-  {
-    id: 3,
-    email: 'test3@',
-    password: 'test',
-    auth: 3,
   },
 ];
 

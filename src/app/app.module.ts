@@ -4,9 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { metaReducers, reducers } from '@core/store/reducers';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EntityDataModule } from '@ngrx/data';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SharedModule } from '@shared/shared.module';
+import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,13 +21,16 @@ import { CoreModule } from './core/core.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgbModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
     CoreModule,
-    SharedModule,
+    EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({}),
     HttpClientModule,
+    NgbModule,
+    SharedModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -33,9 +40,14 @@ import { CoreModule } from './core/core.module';
         strictStateSerializability: true
       }
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router',
+      routerState: RouterState.Minimal
+    })
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
