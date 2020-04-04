@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { metaReducers, reducers } from '@core/store/reducers';
+import { AuthModule } from '@features/logins/auth.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
@@ -22,6 +23,7 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     AppRoutingModule,
+    AuthModule.forRoot(),
     BrowserAnimationsModule,
     BrowserModule,
     CoreModule,
