@@ -21,13 +21,16 @@ import { CoreModule } from './core/core.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgbModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
     CoreModule,
-    SharedModule,
+    EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({}),
     HttpClientModule,
+    NgbModule,
+    SharedModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -37,9 +40,6 @@ import { CoreModule } from './core/core.module';
         strictStateSerializability: true
       }
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([]),
-    EntityDataModule.forRoot({}),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
       routerState: RouterState.Minimal
