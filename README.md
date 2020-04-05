@@ -13,7 +13,7 @@ NgRxで開発を行う為、Chrome拡張機能「Redux DevTools」をインス�
 ## templateブランチ
 
 下記骨組み作成済  
-・eslint 
+・eslint  
 ・tsconfigのpaths  
 ・proxy.json  
 ・共通SCSS  
